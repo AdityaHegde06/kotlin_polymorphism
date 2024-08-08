@@ -1,0 +1,45 @@
+// Method Overloading (Compile-time polymorphism)
+fun methods(a: Float): Float {
+    return 2.0F * a
+}
+
+fun methods(a: Double): Double {
+    return 2.00 * a
+}
+
+// Run-time polymorphism
+
+open class Super1 {
+
+    open fun method1() {
+        println("method 1 from super1")
+    }
+
+    open fun method2() {
+        println("method 2 from super1")
+    }
+}
+
+class Child1 : Super1() {
+    override fun method1() {
+        println("method 1 from child1")
+    }
+
+    override fun method2() {
+        println("method 2 from child1")
+    }
+}
+
+fun main() {
+    val super1 = Super1()
+    val child1 = Child1()
+
+    super1.method1()
+    super1.method2()
+
+    child1.method1()
+    child1.method2()
+
+    println(methods(5.0F))
+    println(methods(5.0))
+}
